@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                         ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
                     ],
                     options={
-                        'db_table': 'oc_lettings_site_profiles',
+                        'db_table': 'oc_lettings_site_profile',
                     },
                 ),
             ],
