@@ -1,3 +1,11 @@
+"""
+This module defines views for the 'lettings' application.
+
+Functions:
+    index
+    letting
+"""
+
 from django.shortcuts import render
 from .models import Letting
 
@@ -7,6 +15,15 @@ from .models import Letting
 # tempor et, bibendum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
 # posuere cubilia curae; Cras eget scelerisque
 def index(request):
+    """
+    Renders the index.html template, displaying a list of all lettings.
+
+    Parameters:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response containing the rendered template.
+    """
     lettings_list = Letting.objects.all()
     context = {"lettings_list": lettings_list}
     return render(request, "lettings/index.html", context)
@@ -24,6 +41,16 @@ def index(request):
 # Mauris condimentum auctor elementum. Donec quis nisi ligula. Integer vehicula tincidunt enim,
 # ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
+    """
+     Renders the letting.html template, displaying details of a specific letting.
+
+     Parameters:
+         request (HttpRequest): The HTTP request object.
+         letting_id (int): The ID of the letting to display.
+
+     Returns:
+         HttpResponse: The HTTP response containing the rendered template.
+     """
     letting = Letting.objects.get(id=letting_id)
     context = {
         "title": letting.title,
