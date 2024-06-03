@@ -48,7 +48,8 @@ class Address(models.Model):
 
              Attributes:
                 db_table (str): The name of the database table for the model.
-                verbose_name_plural (str): The plural name to use for the model in the Django admin interface.
+                verbose_name_plural (str): The plural name to use for the model in
+                 the Django admin interface.
          """
         db_table = "oc_lettings_site_address"
         verbose_name_plural = "Adresses"

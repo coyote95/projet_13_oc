@@ -25,6 +25,7 @@ def index(request):
       """
     return render(request, "index.html")
 
+
 def custom_404(request, exception):
     """
     Renders the 404.html template for page not found errors.
@@ -37,6 +38,7 @@ def custom_404(request, exception):
         HttpResponse: The HTTP response containing the rendered template.
     """
     return render(request, '404.html', status=404)
+
 
 def custom_500(request):
     """
