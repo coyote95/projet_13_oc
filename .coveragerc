@@ -1,0 +1,13 @@
+[run]
+omit =
+    lettings/migrations/*
+    oc_lettings_site/migrations/*
+    profiles/migrations/*
+    */tests.py
+    */__init__.py
+    */apps.py
+    */admin.py
+    */wsgi.py
+    */settings.py
+    */asgi.py
+    manage.py

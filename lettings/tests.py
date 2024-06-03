@@ -1,58 +1,75 @@
-from django.test import Client
 import pytest
-
+from django.test import Client
+from django.urls import reverse, resolve
 from .models import Address, Letting
+from pytest_django.asserts import assertTemplateUsed
 
-client = Client()
 
 @pytest.fixture
-def letting_with_address():
+def address():
     address = Address.objects.create(
-        number="1",
-        street="20 avenue du parc",
+        number="25",
+        street="avenue du parc",
         city="Paris",
-        state="75",
+        state="France",
         zip_code="75002",
         country_iso_code="FR"
     )
+    return address
+
+
+@pytest.fixture
+def letting(address):
     letting = Letting.objects.create(
         title="test",
         address=address
     )
     return letting
 
-@pytest.mark.django_db
-def test_index_response(client):
-    response = client.get("/")
-    assert response.status_code == 200
+
+def test_letting_index_url():
+    path = reverse('lettings_index')
+    assert path == f"/lettings/"
+    assert resolve(path).view_name == "lettings_index"
+
 
 @pytest.mark.django_db
-def test_lettings_list_response(client):
-    response = client.get("/lettings/")
-    assert response.status_code == 200
+def test_letting_id_url(letting):
+    assert hasattr(letting, 'id')  # Ensure that the 'letting' object has an 'id' attribute.
+    path = reverse('letting', kwargs={'letting_id': letting.id})
+    assert path == f"/lettings/{letting.id}/"
+    assert resolve(path).view_name == "letting"
+
 
 @pytest.mark.django_db
-def test_something(letting_with_address):
-    response = client.get(f"/lettings/1/")
-    assert response.status_code == 200
-    # Dans ce test, letting_with_address contiendra l'objet Letting créé par la fixture
-    assert letting_with_address.title == "test"
-    assert letting_with_address.address.city == "Paris"
+def test_model_adress(address):
+    expected_value = "25 avenue du parc"
+    assert str(address) == expected_value
 
-# @pytest.mark.django_db
-# def test_letting_detail_response(client):
-#     address = Address.objects.create(
-#         number="1",
-#         street="20 avenue du parc",
-#         city="Paris",
-#         state="75",
-#         zip_code="75002",
-#         country_iso_code="FR"
-#     )
-#     letting =   Letting.objects.create(
-#         title="test",
-#         address=address
-#     )
-#     response = client.get(f"/lettings/1/")
-#     assert response.status_code == 200
-#     assert b"Paris" in response.content
+
+@pytest.mark.django_db
+def test_model_letting(letting):
+    expected_value = "test"
+    assert str(letting) == expected_value
+
+
+@pytest.mark.django_db
+def test_letting_id_view(letting):
+    client = Client()
+    path = reverse('letting', kwargs={'letting_id': letting.id})
+    response = client.get(path)
+    content = response.content.decode()
+    assert "<title>test</title>" in content
+    assert response.status_code == 200
+    assertTemplateUsed(response, "lettings/letting.html")
+
+
+@pytest.mark.django_db
+def test_letting_index_view():
+    client = Client()
+    path = reverse('lettings_index')
+    response = client.get(path)
+    content = response.content.decode()
+    assert "<title>Lettings</title>" in content
+    assert response.status_code == 200
+    assertTemplateUsed(response, "lettings/index.html")
