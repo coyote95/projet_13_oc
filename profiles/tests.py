@@ -1,37 +1,57 @@
-# from django.test import TestCase
-# from django.urls import reverse
-# from django.contrib.auth.models import User
-# from .models import Profile
-#
-# class ProfileViewsTest(TestCase):
-#     def setUp(self):
-#         # Create test users and profiles
-#         self.user1 = User.objects.create_user(username='user1', password='pass1')
-#         self.user2 = User.objects.create_user(username='user2', password='pass2')
-#         self.profile1 = Profile.objects.create(user=self.user1, bio='Bio of user1')
-#         self.profile2 = Profile.objects.create(user=self.user2, bio='Bio of user2')
-#
-#     def test_index_view(self):
-#         response = self.client.get(reverse('index'))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'profiles/index.html')
-#         self.assertContains(response, 'Bio of user1')
-#         self.assertContains(response, 'Bio of user2')
-#
-#     def test_profile_view(self):
-#         response = self.client.get(reverse('profile', args=['user1']))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'profiles/profile.html')
-#         self.assertContains(response, 'Bio of user1')
-#
-#         response = self.client.get(reverse('profile', args=['user2']))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'profiles/profile.html')
-#         self.assertContains(response, 'Bio of user2')
-#
-#     def test_profile_view_non_existent_user(self):
-#         response = self.client.get(reverse('profile', args=['nonexistent']))
-#         self.assertEqual(response.status_code, 404)
-#
-# if __name__ == "__main__":
-#     TestCase.main()
+import pytest
+from django.test import Client
+from django.urls import reverse, resolve
+from .models import Profile
+from pytest_django.asserts import assertTemplateUsed
+from django.contrib.auth.models import User
+
+
+@pytest.fixture
+def profile():
+    user = User.objects.create_user(username="julien", first_name="Julien", last_name="Dupont")
+    profile = Profile.objects.create(
+        user=user,
+        favorite_city="avenue du parc",
+    )
+    return profile
+
+
+def test_profile_index_url():
+    path = reverse('profiles_index')
+    assert path == f"/profiles/"
+    assert resolve(path).view_name == "profiles_index"
+
+
+@pytest.mark.django_db
+def test_profile_username_url(profile):
+    path = reverse('profile', kwargs={'username': profile.user.username})
+    assert path == f"/profiles/{profile.user.username}/"
+    assert resolve(path).view_name == "profile"
+
+
+@pytest.mark.django_db
+def test_model_profile(profile):
+    expected_value = "julien"
+    assert str(profile) == expected_value
+
+
+@pytest.mark.django_db
+def test_profile_username_view(profile):
+    client = Client()
+    path = reverse('profile', kwargs={'username': profile.user.username})
+    response = client.get(path)
+    content = response.content.decode()
+    assert "<title>julien</title>" in content
+    assert response.status_code == 200
+    assertTemplateUsed(response, "profiles/profile.html")
+
+
+@pytest.mark.django_db
+def test_profile_index_view():
+    client = Client()
+    path = reverse('profiles_index')
+    response = client.get(path)
+    content = response.content.decode()
+    assert "<title>Profiles</title>" in content
+    assert response.status_code == 200
+    assertTemplateUsed(response, "profiles/index.html")
