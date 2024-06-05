@@ -1,5 +1,10 @@
 import os
+
 import sentry_sdk
+import logging
+import django.db.models.signals
+from sentry_sdk.integrations.logging import LoggingIntegration
+from sentry_sdk.integrations.django import DjangoIntegration
 
 from pathlib import Path
 from dotenv import load_dotenv
@@ -126,7 +131,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
+logging.basicConfig(level=logging.INFO)
 sentry_sdk.init(
     dsn=sentry_url,
     # Set traces_sample_rate to 1.0 to capture 100%
@@ -136,4 +141,42 @@ sentry_sdk.init(
     # of sampled transactions.
     # We recommend adjusting this value in production.
     profiles_sample_rate=1.0,
+    integrations=[
+        LoggingIntegration(
+            level=logging.INFO,  # Capture info and above as breadcrumbs
+            event_level=logging.INFO  # Send records as events
+        ),
+        DjangoIntegration(
+            transaction_style='url',
+            middleware_spans=True,
+            signals_spans=True,
+            signals_denylist=[
+                django.db.models.signals.pre_init,
+                django.db.models.signals.post_init,
+            ],
+            cache_spans=False,
+        ),
+    ],
 )
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            # "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+    },
+}

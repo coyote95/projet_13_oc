@@ -8,6 +8,9 @@ Functions:
 """
 
 from django.shortcuts import render
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie quam lobortis leo
@@ -23,6 +26,7 @@ def index(request):
         Returns:
             HttpResponse: The HTTP response containing the rendered template.
       """
+    logger.info("Rendering index.html")
     return render(request, "index.html")
 
 
@@ -37,6 +41,7 @@ def custom_404(request, exception):
     Returns:
         HttpResponse: The HTTP response containing the rendered template.
     """
+    logger.error(f"Page not found: {request.path}")
     return render(request, '404.html', status=404)
 
 
@@ -50,5 +55,5 @@ def custom_500(request):
     Returns:
         HttpResponse: The HTTP response containing the rendered template.
     """
-
+    logger.error("Internal server error")
     return render(request, '500.html', status=500)

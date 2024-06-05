@@ -8,6 +8,9 @@ Functions:
 
 from django.shortcuts import render, get_object_or_404
 from .models import Letting
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit.
@@ -52,6 +55,9 @@ def letting(request, letting_id):
          HttpResponse: The HTTP response containing the rendered template.
      """
     letting = get_object_or_404(Letting, id=letting_id)
+    logger.info(f"Accessing details of letting with ID: {letting_id}, Title: {letting.title}, "
+                f" Address: {letting.address}")
+
     context = {
         "title": letting.title,
         "address": letting.address,

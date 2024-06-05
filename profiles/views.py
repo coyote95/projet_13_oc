@@ -7,8 +7,11 @@ Functions:
 """
 
 from django.shortcuts import render, get_object_or_404
-
 from .models import Profile
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Sed placerat quam in pulvinar commodo. Nullam laoreet consectetur ex,
@@ -46,5 +49,6 @@ def profile(request, username):
     """
 
     profile = get_object_or_404(Profile, user__username=username)
+    logger.info(f"Accessing profile details for username: {username}, Profile ID: {profile.id}")
     context = {"profile": profile}
     return render(request, "profiles/profile.html", context)
