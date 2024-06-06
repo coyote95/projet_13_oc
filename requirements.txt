@@ -1,4 +1,4 @@
-django==5.1a1
+django==3.2.12
 flake8==7.0.0
 pytest-django==4.8.0
 setuptools==70.0.0
