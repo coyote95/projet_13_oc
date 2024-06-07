@@ -9,7 +9,9 @@ RUN pip install --upgrade pip && \
 
 COPY . .
 
-#RUN python manage.py collectstatic --noinput
+RUN mkdir -p /app/static
+
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
