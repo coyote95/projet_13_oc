@@ -9,7 +9,9 @@ RUN pip install --upgrade pip && \
 
 COPY . .
 
+#RUN python manage.py collectstatic --noinput
+
 EXPOSE 8000
 
-# Commande par défaut pour démarrer le serveur Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
