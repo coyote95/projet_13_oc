@@ -1,4 +1,4 @@
-name:   CI
+name: CI
 
 on:
   push:
@@ -7,20 +7,14 @@ on:
 
 stages:
   - build
-  - test
 
-build_job:
-  stage: build
-  image: docker:19.03.12
-  services:
-    - docker:19.03.12-dind
-  script:
-    - COMMIT_HASH=$(git rev-parse --short HEAD)
-    - docker build --build-arg SENTRY=$SENTRY -t cicd:$COMMIT_HASH .
-    - docker tag cicd:$COMMIT_HASH cicd:$COMMIT_HASH
-
-#test_job:
-#  stage: test
-#  image: cicd:$COMMIT_HASH
-#  script:
-
+jobs:
+  build_job:
+    stage: build
+    image: docker:19.03.12
+    services:
+      - docker:19.03.12-dind
+    script:
+      - COMMIT_HASH=$(git rev-parse --short HEAD)
+      - docker build --build-arg SENTRY=$SENTRY -t cicd:$COMMIT_HASH .
+      - docker tag cicd:$COMMIT_HASH cicd:$COMMIT_HASH
