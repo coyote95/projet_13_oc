@@ -30,6 +30,4 @@ jobs:
           docker tag cicd:latest coyote95/cicd:${{ env.COMMIT_HASH }}
 
       - name: Push Docker image
-        run: |
-          docker push coyote95/cicd:${{ env.COMMIT_HASH }}
-#          docker push coyote95/cicd:latest
+        run: docker push coyote95/cicd:${{ env.COMMIT_HASH }}
