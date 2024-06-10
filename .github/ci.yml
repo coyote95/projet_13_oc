@@ -1,0 +1,19 @@
+stages:
+  - build
+  - test
+
+build_job:
+  stage: build
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  script:
+    - COMMIT_HASH=$(git rev-parse --short HEAD)
+    - docker build --build-arg SENTRY=$SENTRY -t cicd:$COMMIT_HASH .
+    - docker tag mon_image:$COMMIT_HASH cicd:latest
+
+#test_job:
+#  stage: test
+#  image: eclipse-temurin:17-jdk-alpine
+#  script:
+#    - ./mvnw test
