@@ -26,8 +26,8 @@ jobs:
 
       - name: Construction de l'image Docker
         run: |
-          docker build --build-arg SENTRY=${{ secrets.SENTRY }} -t cicd:${{ env.COMMIT_HASH }} .
-          docker tag cicd:${{ env.COMMIT_HASH }} cicd:latest
+          docker build --build-arg SENTRY=${{ secrets.SENTRY }} -t cicd .
+          docker tag cicd:latest coyote95/cicd:${{ env.COMMIT_HASH }}
 
       - name: Push Docker image
         run: |
