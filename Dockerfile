@@ -1,5 +1,8 @@
 FROM python:3.12
 
+ARG SENTRY
+ENV SENTRY=${SENTRY}
+
 WORKDIR /app
 
 COPY requirements.txt .
