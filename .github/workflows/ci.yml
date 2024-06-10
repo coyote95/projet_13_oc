@@ -31,5 +31,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push cicd:${{ env.COMMIT_HASH }}
-          docker push cicd:latest
+          docker push coyote95/cicd:${{ env.COMMIT_HASH }}
+#          docker push coyote95/cicd:latest
