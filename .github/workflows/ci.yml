@@ -8,6 +8,7 @@ on:
 stages:
   - build
 
+
 jobs:
   build_job:
     stage: build
@@ -18,3 +19,11 @@ jobs:
       - COMMIT_HASH=$(git rev-parse --short HEAD)
       - docker build --build-arg SENTRY=$SENTRY -t cicd:$COMMIT_HASH .
       - docker tag cicd:$COMMIT_HASH cicd:$COMMIT_HASH
+
+#  test_job:
+#    stage: test
+#    image: docker:19.03.12
+#    services:
+#      - docker:19.03.12-dind
+#    script:
+#      - # Ajoutez ici les commandes de test de votre image Docker
