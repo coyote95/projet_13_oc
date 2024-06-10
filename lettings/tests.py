@@ -29,7 +29,7 @@ def letting(address):
 
 def test_letting_index_url():
     path = reverse('lettings_index')
-    assert path == f"/lettings/"
+    assert path == "/lettings/"
     assert resolve(path).view_name == "lettings_index"
 
 

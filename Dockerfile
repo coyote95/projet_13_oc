@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12
 
 WORKDIR /app
 
@@ -8,8 +8,6 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 COPY . .
-
-RUN mkdir -p /app/static
 
 RUN python manage.py collectstatic --noinput
 

@@ -18,7 +18,7 @@ def profile():
 
 def test_profile_index_url():
     path = reverse('profiles_index')
-    assert path == f"/profiles/"
+    assert path == "/profiles/"
     assert resolve(path).view_name == "profiles_index"
 
 

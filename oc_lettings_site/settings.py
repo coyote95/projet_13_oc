@@ -29,7 +29,7 @@ SECRET_KEY = "fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','openclassrooms.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'openclassrooms.onrender.com']
 
 
 # Application definition
@@ -126,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 STATIC_URL = "/static/"
 
@@ -134,10 +134,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 logging.basicConfig(level=logging.INFO)
 sentry_sdk.init(

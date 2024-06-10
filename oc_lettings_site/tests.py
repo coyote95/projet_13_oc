@@ -10,7 +10,7 @@ def test_dummy():
 
 def test_index_url():
     path = reverse('index')
-    assert path == f"/"
+    assert path == "/"
     assert resolve(path).view_name == "index"
 
 
