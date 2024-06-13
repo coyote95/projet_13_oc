@@ -22,14 +22,14 @@ from . import views
 def trigger_error(request):
     division_by_zero = 1 / 0
 
-#
-# urlpatterns = [
-#     path('sentry-debug/', trigger_error),
-#     path("", views.index, name="index"),
-#     path("lettings/", include("lettings.urls")),
-#     path("profiles/", include("profiles.urls")),
-#     path("admin/", admin.site.urls),
-# ]
+
+urlpatterns = [
+    path('sentry-debug/', trigger_error),
+    path("", views.index, name="index"),
+    path("lettings/", include("lettings.urls")),
+    path("profiles/", include("profiles.urls")),
+    path("admin/", admin.site.urls),
+]
 
 handler404 = custom_404
 handler500 = custom_500
