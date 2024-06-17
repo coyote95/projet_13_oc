@@ -53,4 +53,7 @@ jobs:
           docker tag cicd:latest ${{ secrets.DOCKER_USERNAME }}/cicd:${{ env.COMMIT_HASH }}
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/cicd:${{ env.COMMIT_HASH }}
+
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/cicd:${{ env.COMMIT_HASH }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/cicd:latest
