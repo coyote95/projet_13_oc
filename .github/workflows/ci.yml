@@ -51,6 +51,7 @@ jobs:
         run: |
           docker build --build-arg SENTRY=${{ secrets.SENTRY }} -t cicd .
           docker tag cicd:latest ${{ secrets.DOCKER_USERNAME }}/cicd:${{ env.COMMIT_HASH }}
+          docker tag cicd:latest ${{ secrets.DOCKER_USERNAME }}/cicd:latest
 
       - name: Push Docker image
 
