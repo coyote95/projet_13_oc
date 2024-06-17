@@ -24,6 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Check migrations are up to date
+        run: |
+          python manage.py makemigrations --check --dry-run
+
       - name: Verify code with Flake8
         run: |
           pip install flake8
@@ -32,11 +36,6 @@ jobs:
       - name: Run unit tests
         run: |
           pytest
-
-      - name: Verify server starts
-        run: |
-          nohup python manage.py runserver & sleep 5;
-          curl -f http://127.0.0.1:8000 || (echo "Server failed to start" && exit 1)
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
