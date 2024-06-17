@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
                 migrations.CreateModel(
                     name='Address',
                     fields=[
-                        ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                        ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False,
+                                                 verbose_name='ID')),
                         ('number', models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(9999)])),
                         ('street', models.CharField(max_length=64)),
                         ('city', models.CharField(max_length=64)),
@@ -32,7 +33,8 @@ class Migration(migrations.Migration):
                 migrations.CreateModel(
                     name='Letting',
                     fields=[
-                        ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                        ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False,
+                                                 verbose_name='ID')),
                         ('title', models.CharField(max_length=256)),
                         ('address', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='lettings.Address')),
                     ],
