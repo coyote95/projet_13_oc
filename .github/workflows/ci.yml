@@ -4,7 +4,7 @@ name: CI
 on:
   push:
     branches:
-      - '*'  # Exécute la CI pour toutes les branches
+      - master
 
 jobs:
   build_job:
