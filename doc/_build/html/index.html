@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to Orange County Lettings’s documentation! &#8212; Orange County Lettings 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-orange-county-lettings-s-documentation">
+<h1>Welcome to Orange County Lettings’s documentation!<a class="headerlink" href="#welcome-to-orange-county-lettings-s-documentation" title="Link to this heading">¶</a></h1>
+<section id="project-description">
+<h2>Project Description<a class="headerlink" href="#project-description" title="Link to this heading">¶</a></h2>
+<p>Modifying a Django application for Orange County Lettings, a startup in the real estate rental sector.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>To install and run this project locally, follow these steps:</p>
+<ol class="arabic">
+<li><p>Clone the repository from GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/coyote95/projet_13_oc.git
+<span class="nb">cd</span><span class="w"> </span>projet_13_oc
+</pre></div>
+</div>
+</li>
+<li><p>Create and activate a virtual environment on Windows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>ENV
+<span class="nb">source</span><span class="w"> </span>ENV<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+</li>
+<li><p>Install dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>Run Django migrations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</div>
+</li>
+<li><p>Collect static files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</pre></div>
+</div>
+</li>
+<li><p>Start the Django development server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+</div>
+</li>
+<li><p>Navigate to <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in your browser to view the application.</p></li>
+</ol>
+</section>
+<section id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h2>
+<p>The site uses a basic modular architecture of Django with a configuration directory
+named oc_lettings_site and two application directories named lettings to manage properties and
+profiles to manage users.There is also a static directory handling elements such as images, CSS
+files, JavaScript files, fonts, and other similar resources.Additionally, there is a templates directory containing basic error pages and the main index page of the website.</p>
+</section>
+<section id="technologies-used">
+<h2>Technologies Used<a class="headerlink" href="#technologies-used" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Framework: Django</p></li>
+<li><p>Database: sqlite3</p></li>
+<li><p>Languages: Python, HTML/CSS</p></li>
+<li><p>Containerization: Docker</p></li>
+<li><p>Hosting: Render</p></li>
+</ul>
+</section>
+<section id="database-structure">
+<h2>Database Structure<a class="headerlink" href="#database-structure" title="Link to this heading">¶</a></h2>
+<p>The project uses sqlite3 as the main database. Here are the primary data models:</p>
+<a class="reference internal image-reference" href="_images/diagram.png"><img alt="ER diagram" class="align-center" src="_images/diagram.png" style="width: 600px;" />
+</a>
+</section>
+<section id="programming-interfaces">
+<h2>Programming Interfaces<a class="headerlink" href="#programming-interfaces" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>URL Configurations</strong></p>
+<ul>
+<li><p><cite>oc_lettings_site/urls.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;lettings/&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&quot;lettings.urls&quot;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;profiles/&quot;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s2">&quot;profiles.urls&quot;</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;admin/&quot;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>lettings/urls.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;lettings_index&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&lt;int:letting_id&gt;/&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">letting</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;letting&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>profiles/urls.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;profiles_index&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&lt;str:username&gt;/&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;profile&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Views</strong></p>
+<ul>
+<li><p><cite>oc_lettings_site/views.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Rendering index.html&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">custom_404</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Page not found: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;404.html&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">custom_500</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Internal server error&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;500.html&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>lettings/views.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">lettings_list</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;lettings_list&quot;</span><span class="p">:</span> <span class="n">lettings_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;lettings/index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">letting</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">letting_id</span><span class="p">):</span>
+    <span class="n">letting</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Letting</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">letting_id</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accessing details of letting with ID: </span><span class="si">{</span><span class="n">letting_id</span><span class="si">}</span><span class="s2">, Title: </span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Address: </span><span class="si">{</span><span class="n">letting</span><span class="o">.</span><span class="n">address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="n">letting</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;lettings/letting.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>profiles/views.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+  <span class="n">profiles_list</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+  <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profiles_list&quot;</span><span class="p">:</span> <span class="n">profiles_list</span><span class="p">}</span>
+  <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+ <span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+     <span class="n">profile</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accessing profile details for username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">, Profile ID: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="n">profile</span><span class="p">}</span>
+     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/profile.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Models</strong></p>
+<ul>
+<li><p><cite>lettings/models.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+   <span class="n">number</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">9999</span><span class="p">)])</span>
+   <span class="n">street</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+   <span class="n">city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+   <span class="n">state</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+   <span class="n">zip_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">99999</span><span class="p">)])</span>
+   <span class="n">country_iso_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+
+   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">street</span><span class="si">}</span><span class="s2">&quot;</span>
+
+   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+       <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_address&quot;</span>
+       <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Adresses&quot;</span>
+
+
+  <span class="k">class</span> <span class="nc">Letting</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+      <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+      <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Address</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+
+      <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
+
+      <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+          <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_letting&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><cite>profiles/models.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+  <span class="n">favorite_city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span>
+
+  <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_profile&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Access Home page</strong></p></li>
+</ol>
+<p>The homepage of the site allows access to user information (“profiles”) and property listings (“lettings”) through two buttons.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Example URL: <cite>http://localhost:8000/</cite></p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/home.png"><img alt="homepage screenshot" class="align-center" src="_images/home.png" style="width: 600px;" />
+</a>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p><strong>Access User Profiles</strong></p>
+<p>On the homepage, click the <strong>Profiles</strong> button. You will be redirected to a page listing all user profiles.</p>
+<ul class="simple">
+<li><p>Example URL: <cite>http://localhost:8000/profiles/</cite></p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/profile.png"><img alt="profile screenshot" class="align-center" src="_images/profile.png" style="width: 600px;" />
+</a>
+<ul class="simple">
+<li><p>Example URL: <cite>http://localhost:8000/profiles/DavWin/</cite></p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/profile_1.png"><img alt="profile exemple screenshot" class="align-center" src="_images/profile_1.png" style="width: 600px;" />
+</a>
+</li>
+<li><p><strong>Access Property Listings</strong></p>
+<p>On the homepage, click the <strong>Lettings</strong> button. You will be redirected to a page listing all property listings.</p>
+<ul class="simple">
+<li><p>Example URL: <cite>http://localhost:8000/lettings/</cite></p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/lettings.png"><img alt="letting screenshot" class="align-center" src="_images/lettings.png" style="width: 600px;" />
+</a>
+<ul class="simple">
+<li><p>Example URL: <cite>http://localhost:8000/lettings/1/</cite></p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/lettings_1.png"><img alt="letting exemple screenshot" class="align-center" src="_images/lettings_1.png" style="width: 600px;" />
+</a>
+</li>
+<li><p><strong>Admin Page</strong></p>
+<p>The admin page allows adding or deleting profiles or lettings. To access the admin page, use the following credentials:</p>
+<ul>
+<li><p><strong>Username</strong>: admin</p></li>
+<li><p><strong>Password</strong>: Abc1234!</p></li>
+<li><p>Example URL: <cite>http://localhost:8000/admin/</cite></p>
+<a class="reference internal image-reference" href="_images/admin.png"><img alt="authentification admin screenshot" class="align-center" src="_images/admin.png" style="width: 600px;" />
+</a>
+</li>
+</ul>
+<p>Once logged in, you can manage user profiles and property listings through the admin interface.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/admin_site.png"><img alt="admin screenshot" class="align-center" src="_images/admin_site.png" style="width: 600px;" />
+</a>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="deployment-and-application-management-procedures">
+<h1>Deployment and Application Management Procedures<a class="headerlink" href="#deployment-and-application-management-procedures" title="Link to this heading">¶</a></h1>
+<p>To correctly deploy the application on Render, you need to configure GitHub Actions with the following three environment variables: <cite>DOCKER_PASSWORD</cite>, <cite>DOCKER_USERNAME</cite>, and <cite>SENTRY</cite>.</p>
+<blockquote>
+<div><p><strong>Set Up GitHub Actions</strong></p>
+<blockquote>
+<div><p>In your GitHub repository settings, add the following secrets:</p>
+<ul class="simple">
+<li><p><cite>DOCKER_USERNAME</cite>: Your Docker Hub username.</p></li>
+<li><p><cite>DOCKER_PASSWORD</cite>: Your Docker Hub password.</p></li>
+<li><p><cite>SENTRY</cite>: Your Sentry DSN (Data Source Name) for error tracking.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/secrets_env.png"><img alt="secret variable github action screenshot" class="align-center" src="_images/secrets_env.png" style="width: 600px;" />
+</a>
+<p>Once your GitHub Actions workflow is set up and the environment variables are configured, every
+push to the <cite>main</cite> branch will trigger the deployment process to Render.
+After a commit to the <cite>main</cite> branch, if all CI/CD criteria are met, the site is automatically
+redeployed on the Render hosting service at the following address: [<a class="reference external" href="https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/">https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/</a>)</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Orange County Lettings</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Guillot.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

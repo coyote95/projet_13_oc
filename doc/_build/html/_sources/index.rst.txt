@@ -319,4 +319,4 @@ To correctly deploy the application on Render, you need to configure GitHub Acti
    Once your GitHub Actions workflow is set up and the environment variables are configured, every
    push to the `main` branch will trigger the deployment process to Render.
    After a commit to the `main` branch, if all CI/CD criteria are met, the site is automatically
-   redeployed on the Render hosting service at the following address: https://openclassrooms.onrender.com/
+   redeployed on the Render hosting service at the following address: [https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/)
