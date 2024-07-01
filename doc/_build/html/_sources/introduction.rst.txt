@@ -1,0 +1,4 @@
+Introduction
+----------------------
+
+Modifying a Django application for Orange County Lettings, a startup in the real estate rental sector.

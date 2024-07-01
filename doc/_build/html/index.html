@@ -31,13 +31,34 @@
           <div class="body" role="main">
             
   <section id="welcome-to-orange-county-lettings-s-documentation">
-<h1>Welcome to Orange County Lettings’s documentation!<a class="headerlink" href="#welcome-to-orange-county-lettings-s-documentation" title="Link to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Welcome to Orange County Lettings’s documentation!</a><a class="headerlink" href="#welcome-to-orange-county-lettings-s-documentation" title="Link to this heading">¶</a></h1>
+<section id="contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#welcome-to-orange-county-lettings-s-documentation" id="id2">Welcome to Orange County Lettings’s documentation!</a></p>
+<ul>
+<li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
+<li><p><a class="reference internal" href="#project-description" id="id4">Project Description</a></p></li>
+<li><p><a class="reference internal" href="#installation" id="id5">Installation</a></p></li>
+<li><p><a class="reference internal" href="#quick-start" id="id6">Quick start</a></p></li>
+<li><p><a class="reference internal" href="#technologies-used" id="id7">Technologies Used</a></p></li>
+<li><p><a class="reference internal" href="#database-structure" id="id8">Database Structure</a></p></li>
+<li><p><a class="reference internal" href="#programming-interfaces" id="id9">Programming Interfaces</a></p></li>
+<li><p><a class="reference internal" href="#user-guide" id="id10">User Guide</a></p></li>
+<li><p><a class="reference internal" href="#deployment-and-application-management-procedures" id="id11">Deployment and Application Management Procedures</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
 <section id="project-description">
-<h2>Project Description<a class="headerlink" href="#project-description" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Project Description</a><a class="headerlink" href="#project-description" title="Link to this heading">¶</a></h2>
 <p>Modifying a Django application for Orange County Lettings, a startup in the real estate rental sector.</p>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <p>To install and run this project locally, follow these steps:</p>
 <ol class="arabic">
 <li><p>Clone the repository from GitHub:</p>
@@ -76,14 +97,11 @@
 </ol>
 </section>
 <section id="quick-start">
-<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h2>
-<p>The site uses a basic modular architecture of Django with a configuration directory
-named oc_lettings_site and two application directories named lettings to manage properties and
-profiles to manage users.There is also a static directory handling elements such as images, CSS
-files, JavaScript files, fonts, and other similar resources.Additionally, there is a templates directory containing basic error pages and the main index page of the website.</p>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Quick start</a><a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h2>
+<p>The site uses a basic modular architecture of Django with a configuration directory named oc_lettings_site and two application directories named lettings to manage properties and profiles to manage users. There is also a static directory handling elements such as images, CSS files, JavaScript files, fonts, and other similar resources. Additionally, there is a templates directory containing basic error pages and the main index page of the website.</p>
 </section>
 <section id="technologies-used">
-<h2>Technologies Used<a class="headerlink" href="#technologies-used" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Technologies Used</a><a class="headerlink" href="#technologies-used" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Framework: Django</p></li>
 <li><p>Database: sqlite3</p></li>
@@ -93,13 +111,13 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 </ul>
 </section>
 <section id="database-structure">
-<h2>Database Structure<a class="headerlink" href="#database-structure" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Database Structure</a><a class="headerlink" href="#database-structure" title="Link to this heading">¶</a></h2>
 <p>The project uses sqlite3 as the main database. Here are the primary data models:</p>
 <a class="reference internal image-reference" href="_images/diagram.png"><img alt="ER diagram" class="align-center" src="_images/diagram.png" style="width: 600px;" />
 </a>
 </section>
 <section id="programming-interfaces">
-<h2>Programming Interfaces<a class="headerlink" href="#programming-interfaces" title="Link to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Programming Interfaces</a><a class="headerlink" href="#programming-interfaces" title="Link to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p><strong>URL Configurations</strong></p>
 <ul>
@@ -138,15 +156,13 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Rendering index.html&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
 
-
 <span class="k">def</span> <span class="nf">custom_404</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="p">):</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Page not found: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;404.html&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
 
-
 <span class="k">def</span> <span class="nf">custom_500</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Internal server error&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;500.html&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;500.html&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -155,7 +171,6 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
     <span class="n">lettings_list</span> <span class="o">=</span> <span class="n">Letting</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;lettings_list&quot;</span><span class="p">:</span> <span class="n">lettings_list</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;lettings/index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
-
 
 <span class="k">def</span> <span class="nf">letting</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">letting_id</span><span class="p">):</span>
     <span class="n">letting</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Letting</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">letting_id</span><span class="p">)</span>
@@ -171,15 +186,15 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 </li>
 <li><p><cite>profiles/views.py</cite>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-  <span class="n">profiles_list</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-  <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profiles_list&quot;</span><span class="p">:</span> <span class="n">profiles_list</span><span class="p">}</span>
-  <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="n">profiles_list</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profiles_list&quot;</span><span class="p">:</span> <span class="n">profiles_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/index.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 
- <span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
-     <span class="n">profile</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
-     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accessing profile details for username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">, Profile ID: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="n">profile</span><span class="p">}</span>
-     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/profile.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="n">user__username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accessing profile details for username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">, Profile ID: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="n">profile</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;profiles/profile.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -189,43 +204,42 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 <ul>
 <li><p><cite>lettings/models.py</cite>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-   <span class="n">number</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">9999</span><span class="p">)])</span>
-   <span class="n">street</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-   <span class="n">city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-   <span class="n">state</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
-   <span class="n">zip_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">99999</span><span class="p">)])</span>
-   <span class="n">country_iso_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">9999</span><span class="p">)])</span>
+    <span class="n">street</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+    <span class="n">zip_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MaxValueValidator</span><span class="p">(</span><span class="mi">99999</span><span class="p">)])</span>
+    <span class="n">country_iso_code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">MinLengthValidator</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
 
-   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-       <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">street</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">street</span><span class="si">}</span><span class="s2">&quot;</span>
 
-   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-       <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_address&quot;</span>
-       <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Adresses&quot;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_address&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;Addresses&quot;</span>
 
+<span class="k">class</span> <span class="nc">Letting</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Address</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
 
-  <span class="k">class</span> <span class="nc">Letting</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-      <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
-      <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Address</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
 
-      <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-          <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
-
-      <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-          <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_letting&quot;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_letting&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p><cite>profiles/models.py</cite>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-  <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-  <span class="n">favorite_city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">favorite_city</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span>
 
-  <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-      <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_profile&quot;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;oc_lettings_site_profile&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -233,9 +247,8 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 </li>
 </ol>
 </section>
-</section>
 <section id="user-guide">
-<h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h1>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">User Guide</a><a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Access Home page</strong></p></li>
 </ol>
@@ -258,7 +271,7 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 <ul class="simple">
 <li><p>Example URL: <cite>http://localhost:8000/profiles/DavWin/</cite></p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/profile_1.png"><img alt="profile exemple screenshot" class="align-center" src="_images/profile_1.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/profile_1.png"><img alt="profile example screenshot" class="align-center" src="_images/profile_1.png" style="width: 600px;" />
 </a>
 </li>
 <li><p><strong>Access Property Listings</strong></p>
@@ -271,47 +284,38 @@ files, JavaScript files, fonts, and other similar resources.Additionally, there 
 <ul class="simple">
 <li><p>Example URL: <cite>http://localhost:8000/lettings/1/</cite></p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/lettings_1.png"><img alt="letting exemple screenshot" class="align-center" src="_images/lettings_1.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/lettings_1.png"><img alt="letting example screenshot" class="align-center" src="_images/lettings_1.png" style="width: 600px;" />
 </a>
 </li>
 <li><p><strong>Admin Page</strong></p>
 <p>The admin page allows adding or deleting profiles or lettings. To access the admin page, use the following credentials:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Username</strong>: admin</p></li>
 <li><p><strong>Password</strong>: Abc1234!</p></li>
-<li><p>Example URL: <cite>http://localhost:8000/admin/</cite></p>
-<a class="reference internal image-reference" href="_images/admin.png"><img alt="authentification admin screenshot" class="align-center" src="_images/admin.png" style="width: 600px;" />
-</a>
-</li>
+<li><p>Example URL: <cite>http://localhost:8000/admin/</cite></p></li>
 </ul>
-<p>Once logged in, you can manage user profiles and property listings through the admin interface.</p>
-<blockquote>
-<div><a class="reference internal image-reference" href="_images/admin_site.png"><img alt="admin screenshot" class="align-center" src="_images/admin_site.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/admin.png"><img alt="admin authentication screenshot" class="align-center" src="_images/admin.png" style="width: 600px;" />
 </a>
-</div></blockquote>
+<p>Once logged in, you can manage user profiles and property listings through the admin interface.</p>
+<a class="reference internal image-reference" href="_images/admin_site.png"><img alt="admin interface screenshot" class="align-center" src="_images/admin_site.png" style="width: 600px;" />
+</a>
 </li>
 </ol>
 </section>
 <section id="deployment-and-application-management-procedures">
-<h1>Deployment and Application Management Procedures<a class="headerlink" href="#deployment-and-application-management-procedures" title="Link to this heading">¶</a></h1>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Deployment and Application Management Procedures</a><a class="headerlink" href="#deployment-and-application-management-procedures" title="Link to this heading">¶</a></h2>
 <p>To correctly deploy the application on Render, you need to configure GitHub Actions with the following three environment variables: <cite>DOCKER_PASSWORD</cite>, <cite>DOCKER_USERNAME</cite>, and <cite>SENTRY</cite>.</p>
-<blockquote>
-<div><p><strong>Set Up GitHub Actions</strong></p>
-<blockquote>
-<div><p>In your GitHub repository settings, add the following secrets:</p>
+<p><strong>Set Up GitHub Actions</strong></p>
+<p>In your GitHub repository settings, add the following secrets:</p>
 <ul class="simple">
 <li><p><cite>DOCKER_USERNAME</cite>: Your Docker Hub username.</p></li>
 <li><p><cite>DOCKER_PASSWORD</cite>: Your Docker Hub password.</p></li>
 <li><p><cite>SENTRY</cite>: Your Sentry DSN (Data Source Name) for error tracking.</p></li>
 </ul>
-<a class="reference internal image-reference" href="_images/secrets_env.png"><img alt="secret variable github action screenshot" class="align-center" src="_images/secrets_env.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/secrets_env.png"><img alt="GitHub Action secrets configuration screenshot" class="align-center" src="_images/secrets_env.png" style="width: 600px;" />
 </a>
-<p>Once your GitHub Actions workflow is set up and the environment variables are configured, every
-push to the <cite>main</cite> branch will trigger the deployment process to Render.
-After a commit to the <cite>main</cite> branch, if all CI/CD criteria are met, the site is automatically
-redeployed on the Render hosting service at the following address: [<a class="reference external" href="https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/">https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/</a>)</p>
-</div></blockquote>
-</div></blockquote>
+<p>Once your GitHub Actions workflow is set up and the environment variables are configured, every push to the <cite>main</cite> branch will trigger the deployment process to Render. After a commit to the <cite>main</cite> branch, if all CI/CD criteria are met, the site is automatically redeployed on the Render hosting service at the following address: [<a class="reference external" href="https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/">https://openclassrooms.onrender.com/](https://openclassrooms.onrender.com/</a>)</p>
+</section>
 </section>
 
 
