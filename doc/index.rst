@@ -69,6 +69,7 @@ Technologies Used
 - Database: sqlite3
 - Languages: Python, HTML/CSS
 - Containerization: Docker
+- CI/CD: GitHub Actions
 - Hosting: Render
 
 Database Structure
