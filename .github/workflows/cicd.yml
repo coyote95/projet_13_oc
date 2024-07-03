@@ -58,3 +58,11 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/cicd:${{ env.COMMIT_HASH }}
           docker push ${{ secrets.DOCKER_USERNAME }}/cicd:latest
+
+
+      - name: Deploy to Render
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-cphoaesf7o1s73b71nt0?key=lT_wnqB4Wzs" \
+          -H "Accept: application/json" \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+          -d ''
